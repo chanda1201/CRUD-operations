@@ -28,7 +28,7 @@ class Employee{
     }
     public String toString()
     {
-        return empno+""+ename+""+salary;
+        return empno+"\t"+ename+"\t"+salary+"\t";
         }
 
 }
@@ -50,29 +50,33 @@ class CrudDemo
                 System.out.println("3.SEARCH");
                 System.out.println("4.DELETE");
                 System.out.println("5.UPDATE");
+                System.out.print("Please enter your choice:");
 
                 ch=s.nextInt();
 
                 switch (ch) {
                     case 1:
                               // this case is used for insert data
-                    System.out.print("Enter empno:");
+                    System.out.print("Enter empno: ");
                         int eno=s.nextInt();
-                    System.out.print("Enter empname:");
+                    System.out.print("Enter empname: ");
                         String ename=s1.nextLine();
-                    System.out.print("Enter empsalary");
+                    System.out.print("Enter salary: ");
                         int salary=s.nextInt();
 
-                    c.add(new Employee(eno,ename,salary));
+                    c.add(new Employee(eno , ename , salary));
                         break;
 
                     case 2:
                                 // this case is used for Display data
+
+                        System.out.println("");
+                        System.out.println("Empno\t Ename\t Salary");
                         System.out.println("----------------------------");
                         Iterator<Employee>i =c.iterator();
                         while(i.hasNext()){
                             Employee e= i.next();
-                            System.out.println(e);
+                            System.out.println( e );
                         }
                         System.out.println("----------------------------");
                         break;
@@ -80,9 +84,8 @@ class CrudDemo
                         case 3:
                                 // this case is used for Search 
                         boolean found=false;
-                        System.out.print("Enter Empno to Search");
+                        System.out.print("Enter Empno to Search: ");
                         int empno= s.nextInt();
-                        System.out.println("----------------------------");
                         i= c.iterator();
                         while(i.hasNext()){
                             Employee e= i.next();
@@ -93,15 +96,13 @@ class CrudDemo
                         }if(!found){
                             System.out.println("Record Not Found");
                         }
-                        System.out.println("----------------------------");
                         break;
 
                     case 4:
                                 // this case is for delete data
                     found=false;
-                    System.out.print("Enter Empno to Delete");
+                    System.out.print("Enter Empno to Delete: ");
                         empno= s.nextInt();
-                    System.out.println("----------------------------");
                     i = c.iterator();
                     while(i.hasNext()){
                         Employee e= i.next();
@@ -116,23 +117,21 @@ class CrudDemo
                         
                         System.out.println("Record is Delete Successfully");
                     }
-                    System.out.println("----------------------------");
                     break;
 
                     case 5:
                             // this case is for Update data
                     found=false;
-                    System.out.print("Enter Empno to update");
+                    System.out.print("Enter Empno to update: ");
                         empno= s.nextInt();
-                    System.out.println("----------------------------");
                     ListIterator<Employee>li = c.listIterator();
                     while(li.hasNext()){
                         Employee e= li.next();
                         if(e.getempno()== empno){
-                           System.out.print("Enter new Name");
+                           System.out.print("Enter new Name: ");
                            ename=s1.nextLine(); 
 
-                           System.out.print("Enter new salary");
+                           System.out.print("Enter new salary: ");
                            salary=s.nextInt(); 
                             li.set(new Employee(empno,ename,salary));
                             found =true;
@@ -144,7 +143,6 @@ class CrudDemo
                         
                         System.out.println("Record is Update Successfully");
                     }
-                    System.out.println("----------------------------");
                     break;
 
                     default:
