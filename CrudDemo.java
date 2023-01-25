@@ -16,7 +16,7 @@ class Employee{
         this.salary=salary;
     }
 
-     // creete Get_method
+     // create Get_method
     public int getempno(){
         return empno;
     }
